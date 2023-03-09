@@ -17,6 +17,16 @@ builder.Services.AddDbContext<CustomerDataBaseContext>(mysqlBuilder =>
     mysqlBuilder.UseMySQL(builder.Configuration.GetConnectionString("Connection1"));
 });
 builder.Services.AddScoped<IUpdateCustomerUseCase, UpdateCustomerUseCase>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowMyOrigin",
+        builder => builder.WithOrigins("*") //accede a todos los origenes
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+    );
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,7 +36,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+
+
+
 app.UseHttpsRedirection();
+
+app.UseCors("AllowMyOrigin");
 
 app.UseAuthorization();
 
