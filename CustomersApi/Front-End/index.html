@@ -27,15 +27,15 @@
 
 <h1>Gestion de clientes</h1>
 
-<a onclick="agregarCliente()" href="#" class="myButton">Agregar Cliente</a>
+<a onclick="agregar()" href="#" class="myButton">Agregar Cliente</a>
 
 <table id = "customers">
     <thead>
     <tr>
         <th>Nombre</th>
         <th>Apellidos</th>
+        <th>Email</th>
         <th>Telefono</th>
-        <th>Correo electronico</th>
         <th>Acciones</th>
     </tr>
     </thead>
@@ -54,26 +54,22 @@
         </div>
         
         <div class="modal-body">
-            <input type="text" name="u" placeholder="Nombre" size="20" /><br>
-            <input type="text" name="u" placeholder="Apellido" size="20" /><br>
-            <input type="text" name="u" placeholder="Telefono" size="20" /><br>
-            <input type="text" name="u" placeholder="Email" size="20" /><br>
+            <input id="txtId" type="hidden"  placeholder="Id" size="20" /><br>
+            <input id="txtFirstname" type="text"  placeholder="Nombre" size="20" /><br>
+            <input id="txtLastname" type="text"  placeholder="Apellido" size="20" /><br>
+            <input id="txtEmail" type="text"  placeholder="Email" size="20" /><br>
+            <input id="txtPhone" type="text"  placeholder="Telefono" size="20" /><br>
+            <input id="txtAddress" type="text"  placeholder="Direccion" size="20" /><br>
+
         </div>  
             <div class="modal-footer">
                 
-            <a href="#" class="btn" id="btn_ingresar">Guardar</a>
+            <a onclick = "save()" href="#" class="btn" id="btn_ingresar">Guardar</a>
         </div>
     </div>
 </div>
 <!-- /Modal -->
 
 <script>
-    function agregarCliente() {
-        htmlModal = document.getElementById("modal");
-        htmlModal.setAttribute("class", "modale opened");
-    }
-    function cerrarModal() {
-        htmlModal = document.getElementById("modal");
-        htmlModal.setAttribute("class", "modale");
-    }
+   
 </script>
